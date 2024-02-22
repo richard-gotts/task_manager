@@ -12,7 +12,7 @@ task reports, and displaying statistics.
 # otherwise the program will look in your root directory for the text
 # files.
 
-#=====Importing Libraries=====
+# =====Importing Libraries=====
 import os
 from datetime import datetime, date
 
@@ -81,7 +81,7 @@ def add_task():
     while True:
         try:
             task_due_date = input("\nDue date of task (YYYY-MM-DD): ")
-            due_date_time = datetime.strptime(task_due_date, \
+            due_date_time = datetime.strptime(task_due_date,
                                               DATETIME_STRING_FORMAT)
             break
 
@@ -169,7 +169,7 @@ t - Select a different task
                     break
 
                 if user_choice == "e" and not \
-                    task_list[int(task_choice)]["completed"]:
+                        task_list[int(task_choice)]["completed"]:
 
                     # Run edit function and - when completed - update
                     # task file accordingly
@@ -359,7 +359,7 @@ def gen_task_overview():
     date_time = datetime.today().strftime(DATETIME_STRING_FORMAT + " %H:%M")
 
     with open("task_overview.txt", "w", encoding="utf-8") as report_file:
-        report_file.write("TASK OVERVIEW\n" + date_time + "\n" + "_" * 13 + \
+        report_file.write("TASK OVERVIEW\n" + date_time + "\n" + "_" * 13 +
                           "\n")
         report_file.write(f"\nTotal number of tasks = {total_tasks}")
         report_file.write("\nTotal number of completed tasks = "
@@ -385,7 +385,7 @@ def gen_user_overview():
     date_time = datetime.today().strftime(DATETIME_STRING_FORMAT + " %H:%M")
 
     with open("user_overview.txt", "w", encoding="utf-8") as report_file:
-        report_file.write("USER OVERVIEW\n" + date_time + "\n" + "_" * 13 + \
+        report_file.write("USER OVERVIEW\n" + date_time + "\n" + "_" * 13 +
                           "\n")
         report_file.write(f"\nTotal number of users = {total_users}")
         report_file.write(f"\nTotal number of tasks = {total_tasks}")
@@ -395,7 +395,7 @@ def gen_user_overview():
 
             # Create a list of tasks assigned to the current user in the
             # loop
-            user_task_list = [task for task in task_list if task["username"] \
+            user_task_list = [task for task in task_list if task["username"]
                               == current_user]
 
             # Retrieve total number of tasks for that user
@@ -528,16 +528,16 @@ for t_str in task_data:
     curr_t["username"] = task_components[0]
     curr_t["title"] = task_components[1]
     curr_t["description"] = task_components[2]
-    curr_t["due_date"] = datetime.strptime(task_components[3], \
+    curr_t["due_date"] = datetime.strptime(task_components[3],
                                            DATETIME_STRING_FORMAT)
-    curr_t["assigned_date"] = datetime.strptime(task_components[4], \
+    curr_t["assigned_date"] = datetime.strptime(task_components[4],
                                                 DATETIME_STRING_FORMAT)
     curr_t["completed"] = task_components[5] == "Yes"
 
     # Add dictionary to a task list
     task_list.append(curr_t)
 
-#=====Login Section=====
+# =====Login Section=====
 # This code reads usernames and password from the user.txt file to allow
 # a user to login
 
