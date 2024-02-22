@@ -73,7 +73,7 @@ def add_task():
             break
         print("User does not exist. Please enter a valid username.")
 
-   # Request title and description of task
+    # Request title and description of task
     task_title = input("Title of task: ")
     task_description = input("Description of task: ")
 
@@ -107,13 +107,18 @@ def add_task():
 
 def view_all():
     """
-    This function iterates through a list of tasks and prints each task 
-    along with its identifying number.
+    The `view_all` function prints all tasks with an identifying number 
+    and a message if there are no tasks.
     """
 
     # Print all tasks with an identifying number
     for task_id, task in enumerate(task_list):
         print_task(task_id, task)
+
+    # If there are no tasks, print relevant message and break out of
+    # loop
+    if not task_list:
+        print("\nThere are no tasks currently.")
 
 
 def view_mine():
@@ -380,7 +385,7 @@ def gen_user_overview():
     date_time = datetime.today().strftime(DATETIME_STRING_FORMAT + " %H:%M")
 
     with open("user_overview.txt", "w", encoding="utf-8") as report_file:
-        report_file.write("TASK OVERVIEW\n" + date_time + "\n" + "_" * 13 + \
+        report_file.write("USER OVERVIEW\n" + date_time + "\n" + "_" * 13 + \
                           "\n")
         report_file.write(f"\nTotal number of users = {total_users}")
         report_file.write(f"\nTotal number of tasks = {total_tasks}")
