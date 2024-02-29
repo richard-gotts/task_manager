@@ -520,22 +520,22 @@ with open("tasks.txt", 'r', encoding="utf-8") as task_file:
 task_list = []
 
 # Reorganise each task string in the task data list into a dictionary
-for t_str in task_data:
-    curr_t = {}
+for task_str in task_data:
+    curr_task = {}
 
     # Split by semicolon and manually add each component
-    task_components = t_str.split(";")
-    curr_t["username"] = task_components[0]
-    curr_t["title"] = task_components[1]
-    curr_t["description"] = task_components[2]
-    curr_t["due_date"] = datetime.strptime(task_components[3],
+    task_components = task_str.split(";")
+    curr_task["username"] = task_components[0]
+    curr_task["title"] = task_components[1]
+    curr_task["description"] = task_components[2]
+    curr_task["due_date"] = datetime.strptime(task_components[3],
                                            DATETIME_STRING_FORMAT)
-    curr_t["assigned_date"] = datetime.strptime(task_components[4],
+    curr_task["assigned_date"] = datetime.strptime(task_components[4],
                                                 DATETIME_STRING_FORMAT)
-    curr_t["completed"] = task_components[5] == "Yes"
+    curr_task["completed"] = task_components[5] == "Yes"
 
     # Add dictionary to a task list
-    task_list.append(curr_t)
+    task_list.append(curr_task)
 
 # =====Login Section=====
 # This code reads usernames and password from the user.txt file to allow
