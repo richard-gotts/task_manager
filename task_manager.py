@@ -218,13 +218,13 @@ def print_task(task_id, task: dict):
     """
 
     # Build a string which displays all the task information
-    disp_str = f"Task: \t\t {task["title"]}\n"
-    disp_str += f"Assigned to: \t {task["username"]}\n"
+    disp_str = f"Task: \t\t {task['title']}\n"
+    disp_str += f"Assigned to: \t {task['username']}\n"
     disp_str += ("Date Assigned: \t "
-                 f"{task["assigned_date"].strftime(DATETIME_STRING_FORMAT)}\n")
+                 f"{task['assigned_date'].strftime(DATETIME_STRING_FORMAT)}\n")
     disp_str += ("Due Date: \t "
-                 f"{task["due_date"].strftime(DATETIME_STRING_FORMAT)}\n")
-    disp_str += f"Task Description: \n {task["description"]}"
+                 f"{task['due_date'].strftime(DATETIME_STRING_FORMAT)}\n")
+    disp_str += f"Task Description: \n {task['description']}"
 
     # Print this information along with corresponding task id
     print("_ " * 50)
